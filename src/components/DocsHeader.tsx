@@ -32,12 +32,14 @@ export const DocsHeader = ({ onSearchClick }: DocsHeaderProps) => {
           <div className="hidden md:flex items-center">
             <Button
               variant="outline"
-              className="relative h-9 w-full justify-start rounded-[0.5rem] bg-background text-sm font-normal text-muted-foreground shadow-none sm:w-64"
+              className="h-9 w-full flex items-center justify-between rounded-[0.5rem] bg-background text-sm font-normal text-muted-foreground shadow-none sm:w-64 px-3"
               onClick={onSearchClick}
             >
-              <Search className="h-4 w-4 mr-2" />
-              <span className="truncate">Buscar en la documentación...</span>
-              <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+              <div className="flex items-center gap-2">
+                <Search className="h-4 w-4" />
+                <span className="truncate">Buscar en la documentación...</span>
+              </div>
+              <kbd className="pointer-events-none hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
                 <span className="text-xs">⌘</span>K
               </kbd>
             </Button>
