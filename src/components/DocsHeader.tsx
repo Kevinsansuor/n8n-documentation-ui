@@ -17,7 +17,6 @@ export const DocsHeader = ({ onSearchClick }: DocsHeaderProps) => {
       <div className="container mx-auto flex items-center justify-between p-4">
         <div className="flex items-center space-x-8">
           <a href="/" className="flex items-center space-x-2">
-            <Triangle className="w-6 h-6 fill-primary" />
             <span className="text-xl font-bold">n8n Docs</span>
           </a>
           <nav className="hidden md:flex items-center space-x-6 text-muted-foreground">
