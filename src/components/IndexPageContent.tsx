@@ -63,7 +63,7 @@ const allCategories = [
 
 export const IndexPageContent = () => {
   return (
-    <div className="container mx-auto px-4 py-12 md:py-20">
+    <>
       <div className="text-center max-w-2xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">Bienvenido a la Documentación de n8n</h1>
         <p className="text-lg text-muted-foreground mt-4">
@@ -81,6 +81,6 @@ export const IndexPageContent = () => {
           </section>
         ))}
       </div>
-    </div>
+    </>
   );
 };

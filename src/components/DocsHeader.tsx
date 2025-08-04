@@ -3,13 +3,15 @@ import { Button } from '@/components/ui/button';
 import { ThemeToggle } from './ThemeToggle';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Link } from 'react-router-dom';
-import React from 'react';
+import React, { useState } from 'react';
 
 interface DocsHeaderProps {
   onSearchClick: () => void;
 }
 
 export const DocsHeader = ({ onSearchClick }: DocsHeaderProps) => {
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
+
   return (
     <header className="bg-card text-card-foreground border-b sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between p-4">
@@ -19,10 +21,10 @@ export const DocsHeader = ({ onSearchClick }: DocsHeaderProps) => {
             <span className="text-xl font-bold">n8n Docs</span>
           </a>
           <nav className="hidden md:flex items-center space-x-6 text-muted-foreground">
-            <a href="#" className="hover:text-foreground transition-colors">Documentación</a>
-            <a href="#" className="hover:text-foreground transition-colors">API</a>
-            <a href="#" className="hover:text-foreground transition-colors">Comunidad</a>
-            <a href="#" className="hover:text-foreground transition-colors">Blog</a>
+            <a href="/" className="hover:text-foreground transition-colors">Documentación</a>
+            <a href="https://n8n.io/faq/api-usage/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">API</a>
+            <a href="https://community.n8n.io/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Comunidad</a>
+            <a href="https://n8n.io/blog/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Blog</a>
           </nav>
         </div>
 
@@ -46,7 +48,7 @@ export const DocsHeader = ({ onSearchClick }: DocsHeaderProps) => {
               <Search className="h-6 w-6" />
               <span className="sr-only">Buscar</span>
             </Button>
-            <Sheet>
+            <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
                   <Menu className="h-6 w-6" />
@@ -55,10 +57,10 @@ export const DocsHeader = ({ onSearchClick }: DocsHeaderProps) => {
               </SheetTrigger>
               <SheetContent>
                 <nav className="flex flex-col space-y-4 text-lg mt-8">
-                  <Link to="#" className="text-muted-foreground hover:text-foreground">Documentación</Link>
-                  <Link to="#" className="text-muted-foreground hover:text-foreground">API</Link>
-                  <Link to="#" className="text-muted-foreground hover:text-foreground">Comunidad</Link>
-                  <Link to="#" className="text-muted-foreground hover:text-foreground">Blog</Link>
+                  <Link to="/" onClick={() => setIsSheetOpen(false)} className="text-muted-foreground hover:text-foreground">Documentación</Link>
+                  <a href="https://n8n.io/faq/api-usage/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">API</a>
+                  <a href="https://community.n8n.io/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">Comunidad</a>
+                  <a href="https://n8n.io/blog/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">Blog</a>
                 </nav>
               </SheetContent>
             </Sheet>
