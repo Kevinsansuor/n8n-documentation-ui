@@ -9,8 +9,8 @@ const allCategories = [
     items: [
       {
         icon: <FileText className="w-6 h-6" />,
-        title: 'Introduction',
-        description: 'Learn about n8n and its capabilities',
+        title: 'Guía de la Documentación',
+        description: 'Un resumen completo de los recursos disponibles para n8n.',
       },
       {
         icon: <ListTree className="w-6 h-6" />,
