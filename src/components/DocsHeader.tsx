@@ -1,7 +1,9 @@
-import { Triangle, Search } from 'lucide-react';
+import { Triangle, Search, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ThemeToggle } from './ThemeToggle';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Link } from 'react-router-dom';
 
 export const DocsHeader = () => {
   return (
@@ -19,8 +21,9 @@ export const DocsHeader = () => {
             <a href="#" className="hover:text-foreground transition-colors">Blog</a>
           </nav>
         </div>
-        <div className="flex items-center space-x-4">
-          <div className="relative hidden sm:block">
+
+        <div className="hidden md:flex items-center space-x-4">
+          <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4" />
             <Input
               type="search"
@@ -32,6 +35,31 @@ export const DocsHeader = () => {
           <Button variant="outline">
             Sign In
           </Button>
+        </div>
+
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Open menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent>
+              <nav className="flex flex-col space-y-4 text-lg mt-8">
+                <Link to="#" className="text-muted-foreground hover:text-foreground">Docs</Link>
+                <Link to="#" className="text-muted-foreground hover:text-foreground">API</Link>
+                <Link to="#" className="text-muted-foreground hover:text-foreground">Community</Link>
+                <Link to="#" className="text-muted-foreground hover:text-foreground">Blog</Link>
+              </nav>
+              <div className="mt-8 flex items-center justify-between">
+                <ThemeToggle />
+                <Button variant="outline">
+                  Sign In
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>
