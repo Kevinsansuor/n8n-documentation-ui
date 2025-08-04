@@ -9,6 +9,7 @@ import HostingOptionsPage from "./pages/HostingOptionsPage";
 import CoreConceptsPage from "./pages/CoreConceptsPage";
 import NodesPage from "./pages/NodesPage";
 import WorkflowsPage from "./pages/WorkflowsPage";
+import AdvancedPage from "./pages/AdvancedPage";
 import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "./components/ThemeProvider";
 
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/core-concepts" element={<CoreConceptsPage />} />
             <Route path="/nodes" element={<NodesPage />} />
             <Route path="/workflows" element={<WorkflowsPage />} />
+            <Route path="/advanced" element={<AdvancedPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

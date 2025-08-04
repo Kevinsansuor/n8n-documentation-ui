@@ -54,9 +54,9 @@ const allCategories = [
   {
     title: 'Advanced',
     items: [
-        { icon: <Shield className="w-6 h-6" />, title: 'Security', description: 'Ensure the security of your n8n instance', link: '/article' },
-        { icon: <KeyRound className="w-6 h-6" />, title: 'Authentication', description: 'Manage user access and permissions', link: '/article' },
-        { icon: <BookKey className="w-6 h-6" />, title: 'API', description: 'Interact with n8n programmatically', link: '/article' },
+        { icon: <Shield className="w-6 h-6" />, title: 'Security', description: 'Ensure the security of your n8n instance', link: '/advanced' },
+        { icon: <KeyRound className="w-6 h-6" />, title: 'Authentication', description: 'Manage user access and permissions', link: '/advanced' },
+        { icon: <BookKey className="w-6 h-6" />, title: 'API', description: 'Interact with n8n programmatically', link: '/advanced' },
     ],
   },
 ];
