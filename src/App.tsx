@@ -8,6 +8,7 @@ import ArticlePage from "./pages/ArticlePage";
 import HostingOptionsPage from "./pages/HostingOptionsPage";
 import CoreConceptsPage from "./pages/CoreConceptsPage";
 import NodesPage from "./pages/NodesPage";
+import WorkflowsPage from "./pages/WorkflowsPage";
 import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "./components/ThemeProvider";
 
@@ -26,6 +27,7 @@ const App = () => (
             <Route path="/hosting-options" element={<HostingOptionsPage />} />
             <Route path="/core-concepts" element={<CoreConceptsPage />} />
             <Route path="/nodes" element={<NodesPage />} />
+            <Route path="/workflows" element={<WorkflowsPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -31,7 +31,7 @@ const allCategories = [
     title: 'Core Concepts',
     items: [
         { icon: <Puzzle className="w-6 h-6" />, title: 'Nodes', description: 'Explore the building blocks of n8n', link: '/nodes' },
-        { icon: <Workflow className="w-6 h-6" />, title: 'Workflows', description: 'Create and manage automated processes', link: '/core-concepts' },
+        { icon: <Workflow className="w-6 h-6" />, title: 'Workflows', description: 'Create and manage automated processes', link: '/workflows' },
         { icon: <Settings className="w-6 h-6" />, title: 'Settings', description: 'Configure n8n to suit your needs', link: '/article' },
     ],
   },
@@ -46,9 +46,9 @@ const allCategories = [
   {
     title: 'Workflows',
     items: [
-        { icon: <Clock className="w-6 h-6" />, title: 'Triggers', description: 'Automate workflows based on events', link: '/core-concepts' },
-        { icon: <Table className="w-6 h-6" />, title: 'Data Manipulation', description: 'Transform and process data', link: '/core-concepts' },
-        { icon: <Code className="w-6 h-6" />, title: 'Custom Functions', description: 'Extend n8n with custom code', link: '/core-concepts' },
+        { icon: <Clock className="w-6 h-6" />, title: 'Triggers', description: 'Automate workflows based on events', link: '/workflows' },
+        { icon: <Table className="w-6 h-6" />, title: 'Data Manipulation', description: 'Transform and process data', link: '/workflows' },
+        { icon: <Code className="w-6 h-6" />, title: 'Custom Functions', description: 'Extend n8n with custom code', link: '/workflows' },
     ],
   },
   {
