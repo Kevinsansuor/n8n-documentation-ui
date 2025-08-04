@@ -1,24 +1,47 @@
 import React, { useState, useEffect } from 'react';
 
-const sections = [
-  { id: 'what-is-n8n', title: 'What is n8n?' },
-  { id: 'core-concepts', title: 'Core Concepts' },
-  { id: 'installation', title: 'Installation' },
-];
+interface Heading {
+  id: string;
+  title: string;
+  level: number;
+}
 
-export const OnThisPageSidebar = () => {
+interface OnThisPageSidebarProps {
+  contentRef: React.RefObject<HTMLElement>;
+}
+
+export const OnThisPageSidebar = ({ contentRef }: OnThisPageSidebarProps) => {
+  const [headings, setHeadings] = useState<Heading[]>([]);
   const [activeId, setActiveId] = useState('');
 
   useEffect(() => {
+    if (!contentRef.current) return;
+
+    const headingElements = Array.from(
+      contentRef.current.querySelectorAll('h2, h3')
+    ) as HTMLElement[];
+
+    const newHeadings = headingElements
+      .filter(el => el.id)
+      .map(el => ({
+        id: el.id,
+        title: el.innerText,
+        level: Number(el.tagName.substring(1)),
+      }));
+    
+    setHeadings(newHeadings);
+  }, [contentRef]);
+
+  useEffect(() => {
+    if (headings.length === 0) return;
+
     const handleScroll = () => {
       let currentId = '';
-      // Itera hacia atrás para encontrar la última sección que se ha desplazado
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        const element = document.getElementById(section.id);
-        // 120px de desplazamiento para el encabezado fijo
+      for (let i = headings.length - 1; i >= 0; i--) {
+        const heading = headings[i];
+        const element = document.getElementById(heading.id);
         if (element && element.getBoundingClientRect().top < 120) {
-          currentId = section.id;
+          currentId = heading.id;
           break;
         }
       }
@@ -26,29 +49,28 @@ export const OnThisPageSidebar = () => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    // Llama al manejador en el montaje para establecer el estado inicial
     handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [headings]);
 
   return (
     <div className="sticky top-24">
       <h3 className="text-sm font-semibold text-foreground mb-4 uppercase">On this page</h3>
       <ul className="space-y-2">
-        {sections.map((section) => (
-          <li key={section.id}>
+        {headings.map((heading) => (
+          <li key={heading.id}>
             <a
-              href={`#${section.id}`}
-              className={`block border-l-2 pl-4 text-sm transition-colors ${
-                activeId === section.id
+              href={`#${heading.id}`}
+              className={`block border-l-2 text-sm transition-colors ${
+                activeId === heading.id
                   ? 'border-blue-500 text-blue-500 font-semibold'
                   : 'border-border text-muted-foreground hover:text-foreground hover:border-foreground'
-              }`}
+              } ${heading.level === 3 ? 'pl-8' : 'pl-4'}`}
             >
-              {section.title}
+              {heading.title}
             </a>
           </li>
         ))}
