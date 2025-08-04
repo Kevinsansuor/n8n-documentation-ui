@@ -6,7 +6,7 @@ const ArticlePage = () => {
     <DocsLayout>
       <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="flex flex-col lg:flex-row gap-12 xl:gap-16">
-          <article className="prose prose-invert prose-lg max-w-none lg:w-3/4 text-gray-300 prose-headings:text-white prose-h1:text-blue-400 prose-h2:border-b prose-h2:border-gray-800 prose-h2:pb-2 prose-a:text-blue-400 hover:prose-a:text-blue-500 prose-strong:text-white prose-code:text-pink-400 prose-code:bg-[#1f2937] prose-code:p-1 prose-code:rounded-md prose-pre:bg-[#1f2937] prose-pre:border prose-pre:border-gray-800">
+          <article className="prose dark:prose-invert prose-lg max-w-none lg:w-3/4 prose-headings:font-semibold prose-h1:text-blue-500 prose-h2:border-b prose-h2:pb-2 prose-a:text-blue-500 hover:prose-a:text-blue-600 prose-strong:text-foreground prose-code:bg-muted prose-code:p-1 prose-code:rounded-md prose-pre:bg-muted prose-pre:border">
             <h1>Introduction</h1>
             <p>
               Welcome to the n8n documentation. n8n is a free and open-source workflow automation tool. It enables you to connect different applications and services to automate your tasks. This guide will walk you through the basics of n8n, from installation to creating your first workflow.

@@ -7,7 +7,7 @@ interface DocsLayoutProps {
 
 export const DocsLayout = ({ children }: DocsLayoutProps) => {
   return (
-    <div className="bg-[#0c1017] min-h-screen text-white">
+    <div className="bg-background min-h-screen text-foreground">
       <DocsHeader />
       <main>{children}</main>
     </div>

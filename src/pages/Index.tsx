@@ -53,11 +53,11 @@ const Index = () => {
         <div className="text-center max-w-2xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to n8n Docs</h1>
           <div className="relative mt-6">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
             <Input
               type="search"
               placeholder="Search docs"
-              className="bg-[#1f2937] border-gray-700 h-14 pl-12 text-lg w-full rounded-lg focus:ring-blue-500 focus:border-blue-500"
+              className="bg-card border-border h-14 pl-12 text-lg w-full rounded-lg focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
         </div>
