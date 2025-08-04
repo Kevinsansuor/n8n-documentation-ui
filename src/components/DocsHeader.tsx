@@ -1,22 +1,15 @@
 import { Triangle, Search, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { ThemeToggle } from './ThemeToggle';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Link, useNavigate } from 'react-router-dom';
-import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import React from 'react';
 
-export const DocsHeader = () => {
-  const navigate = useNavigate();
-  const [query, setQuery] = useState('');
+interface DocsHeaderProps {
+  onSearchClick: () => void;
+}
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (query.trim()) {
-      navigate(`/search?q=${encodeURIComponent(query.trim())}`);
-    }
-  };
-
+export const DocsHeader = ({ onSearchClick }: DocsHeaderProps) => {
   return (
     <header className="bg-card text-card-foreground border-b sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between p-4">
@@ -33,52 +26,44 @@ export const DocsHeader = () => {
           </nav>
         </div>
 
-        <div className="hidden md:flex items-center space-x-4">
-          <form onSubmit={handleSearch} className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4" />
-            <Input
-              type="search"
-              placeholder="Search"
-              className="bg-background border-border pl-9 w-48 rounded-md"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-          </form>
+        <div className="flex items-center space-x-4">
+          <div className="hidden md:flex items-center">
+            <Button
+              variant="outline"
+              className="relative h-9 w-full justify-start rounded-[0.5rem] bg-background text-sm font-normal text-muted-foreground shadow-none sm:w-64"
+              onClick={onSearchClick}
+            >
+              <Search className="h-4 w-4 mr-2" />
+              <span>Search docs...</span>
+              <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+                <span className="text-xs">⌘</span>K
+              </kbd>
+            </Button>
+          </div>
           <ThemeToggle />
-        </div>
-
-        <div className="md:hidden">
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Open menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent>
-              <form onSubmit={handleSearch} className="relative mt-6">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4" />
-                <Input
-                  type="search"
-                  placeholder="Search docs..."
-                  className="bg-background border-border pl-9 w-full"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                />
-              </form>
-              <nav className="flex flex-col space-y-4 text-lg mt-8">
-                <Link to="#" className="text-muted-foreground hover:text-foreground">Docs</Link>
-                <Link to="#" className="text-muted-foreground hover:text-foreground">API</Link>
-                <Link to="#" className="text-muted-foreground hover:text-foreground">Community</Link>
-                <Link to="#" className="text-muted-foreground hover:text-foreground">Blog</Link>
-              </nav>
-              <div className="mt-8 flex items-center justify-start">
-                <ThemeToggle />
-              </div>
-            </SheetContent>
-          </Sheet>
+          <div className="md:hidden">
+            <Button variant="ghost" size="icon" className="mr-2" onClick={onSearchClick}>
+              <Search className="h-6 w-6" />
+              <span className="sr-only">Search</span>
+            </Button>
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent>
+                <nav className="flex flex-col space-y-4 text-lg mt-8">
+                  <Link to="#" className="text-muted-foreground hover:text-foreground">Docs</Link>
+                  <Link to="#" className="text-muted-foreground hover:text-foreground">API</Link>
+                  <Link to="#" className="text-muted-foreground hover:text-foreground">Community</Link>
+                  <Link to="#" className="text-muted-foreground hover:text-foreground">Blog</Link>
+                </nav>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </header>
   );
-};
