@@ -3,11 +3,19 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ThemeToggle } from './ThemeToggle';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Link } from 'react-router-dom';
-import { useSearch } from '@/context/SearchContext';
+import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 
 export const DocsHeader = () => {
-  const { searchTerm, setSearchTerm } = useSearch();
+  const navigate = useNavigate();
+  const [query, setQuery] = useState('');
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (query.trim()) {
+      navigate(`/search?q=${encodeURIComponent(query.trim())}`);
+    }
+  };
 
   return (
     <header className="bg-card text-card-foreground border-b sticky top-0 z-50">
@@ -26,16 +34,16 @@ export const DocsHeader = () => {
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
-          <div className="relative">
+          <form onSubmit={handleSearch} className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4" />
             <Input
               type="search"
               placeholder="Search"
               className="bg-background border-border pl-9 w-48 rounded-md"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
             />
-          </div>
+          </form>
           <ThemeToggle />
         </div>
 
@@ -48,16 +56,16 @@ export const DocsHeader = () => {
               </Button>
             </SheetTrigger>
             <SheetContent>
-              <div className="relative mt-6">
+              <form onSubmit={handleSearch} className="relative mt-6">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4" />
                 <Input
                   type="search"
                   placeholder="Search docs..."
                   className="bg-background border-border pl-9 w-full"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
                 />
-              </div>
+              </form>
               <nav className="flex flex-col space-y-4 text-lg mt-8">
                 <Link to="#" className="text-muted-foreground hover:text-foreground">Docs</Link>
                 <Link to="#" className="text-muted-foreground hover:text-foreground">API</Link>

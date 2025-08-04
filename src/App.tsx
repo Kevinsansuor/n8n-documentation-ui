@@ -12,6 +12,7 @@ import WorkflowsPage from "./pages/WorkflowsPage";
 import AdvancedPage from "./pages/AdvancedPage";
 import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "./components/ThemeProvider";
+import SearchResultsPage from "./pages/SearchResultsPage";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/nodes" element={<NodesPage />} />
             <Route path="/workflows" element={<WorkflowsPage />} />
             <Route path="/advanced" element={<AdvancedPage />} />
+            <Route path="/search" element={<SearchResultsPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

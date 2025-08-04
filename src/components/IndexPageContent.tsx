@@ -1,7 +1,6 @@
 import { CategoryCard } from '@/components/CategoryCard';
 import { FileText, ListTree, Terminal, Puzzle, Workflow, Settings, Database, Cloud, Mail, Clock, Table, Code, Shield, KeyRound, BookKey } from 'lucide-react';
 import React from 'react';
-import { useSearch } from '@/context/SearchContext';
 
 const allCategories = [
   {
@@ -63,16 +62,6 @@ const allCategories = [
 
 
 export const IndexPageContent = () => {
-  const { searchTerm } = useSearch();
-
-  const filteredCategories = allCategories.map(category => ({
-    ...category,
-    items: category.items.filter(item =>
-      item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.description.toLowerCase().includes(searchTerm.toLowerCase())
-    ),
-  })).filter(category => category.items.length > 0);
-
   return (
     <div className="container mx-auto px-4 py-12 md:py-20">
       <div className="text-center max-w-2xl mx-auto">
@@ -83,20 +72,14 @@ export const IndexPageContent = () => {
       </div>
 
       <div className="mt-16 space-y-12">
-        {filteredCategories.length > 0 ? (
-          filteredCategories.map(category => (
-            <section key={category.title}>
-              <h2 className="text-2xl font-bold mb-6">{category.title}</h2>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {category.items.map(item => <CategoryCard key={item.title} {...item} />)}
-              </div>
-            </section>
-          ))
-        ) : (
-          <div className="text-center py-16">
-            <p className="text-muted-foreground text-lg">No results found for "{searchTerm}"</p>
-          </div>
-        )}
+        {allCategories.map(category => (
+          <section key={category.title}>
+            <h2 className="text-2xl font-bold mb-6">{category.title}</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {category.items.map(item => <CategoryCard key={item.title} {...item} />)}
+            </div>
+          </section>
+        ))}
       </div>
     </div>
   );
