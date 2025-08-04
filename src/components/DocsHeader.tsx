@@ -19,9 +19,9 @@ export const DocsHeader = ({ onSearchClick }: DocsHeaderProps) => {
             <span className="text-xl font-bold">n8n Docs</span>
           </a>
           <nav className="hidden md:flex items-center space-x-6 text-muted-foreground">
-            <a href="#" className="hover:text-foreground transition-colors">Docs</a>
+            <a href="#" className="hover:text-foreground transition-colors">Documentación</a>
             <a href="#" className="hover:text-foreground transition-colors">API</a>
-            <a href="#" className="hover:text-foreground transition-colors">Community</a>
+            <a href="#" className="hover:text-foreground transition-colors">Comunidad</a>
             <a href="#" className="hover:text-foreground transition-colors">Blog</a>
           </nav>
         </div>
@@ -34,7 +34,7 @@ export const DocsHeader = ({ onSearchClick }: DocsHeaderProps) => {
               onClick={onSearchClick}
             >
               <Search className="h-4 w-4 mr-2" />
-              <span>Search docs...</span>
+              <span>Buscar en la documentación...</span>
               <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
                 <span className="text-xs">⌘</span>K
               </kbd>
@@ -44,20 +44,20 @@ export const DocsHeader = ({ onSearchClick }: DocsHeaderProps) => {
           <div className="md:hidden">
             <Button variant="ghost" size="icon" className="mr-2" onClick={onSearchClick}>
               <Search className="h-6 w-6" />
-              <span className="sr-only">Search</span>
+              <span className="sr-only">Buscar</span>
             </Button>
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
                   <Menu className="h-6 w-6" />
-                  <span className="sr-only">Open menu</span>
+                  <span className="sr-only">Abrir menú</span>
                 </Button>
               </SheetTrigger>
               <SheetContent>
                 <nav className="flex flex-col space-y-4 text-lg mt-8">
-                  <Link to="#" className="text-muted-foreground hover:text-foreground">Docs</Link>
+                  <Link to="#" className="text-muted-foreground hover:text-foreground">Documentación</Link>
                   <Link to="#" className="text-muted-foreground hover:text-foreground">API</Link>
-                  <Link to="#" className="text-muted-foreground hover:text-foreground">Community</Link>
+                  <Link to="#" className="text-muted-foreground hover:text-foreground">Comunidad</Link>
                   <Link to="#" className="text-muted-foreground hover:text-foreground">Blog</Link>
                 </nav>
               </SheetContent>

@@ -9,7 +9,7 @@ export const searchIndex: SearchResult[] = [
   {
     path: '/article',
     title: 'Guía Completa de la Documentación de n8n',
-    category: 'Getting Started',
+    category: 'Primeros Pasos',
     content: `
       La documentación de n8n es una herramienta integral para aprender, usar y desarrollar con esta plataforma de automatización de flujos de trabajo. Es un recurso valioso para comprender la arquitectura subyacente de n8n, lo cual es útil si necesitas incrustar n8n o personalizar sus bases de datos predeterminadas.
       Sitio Oficial de n8n Docs: Puedes acceder a la documentación principal a través del sitio web oficial de n8n. Esta cubre todo, desde la configuración inicial hasta el uso y desarrollo de n8n, y también incluye información sobre sus capacidades de IA y automatización de procesos de negocio.
@@ -28,7 +28,7 @@ export const searchIndex: SearchResult[] = [
   {
     path: '/hosting-options',
     title: 'Opciones de Hospedaje de n8n',
-    category: 'Getting Started',
+    category: 'Primeros Pasos',
     content: `
       n8n ofrece diversas opciones de hospedaje que se adaptan a diferentes necesidades y niveles de conocimiento técnico.
       n8n Cloud (Nube): Esta es la versión alojada y gestionada directamente por el equipo de n8n. Es un servicio de pago. Ventajas: Facilidad y rapidez, siempre actualizado, estabilidad. Desventajas: Costo, menor control de datos, limitaciones de planes.
@@ -40,7 +40,7 @@ export const searchIndex: SearchResult[] = [
   {
     path: '/core-concepts',
     title: 'Conceptos Clave de n8n',
-    category: 'Core Concepts',
+    category: 'Conceptos Clave',
     content: `
       n8n es una plataforma de automatización de código abierto "low-code".
       Workflows (Flujos de Trabajo): El núcleo de la automatización. Se componen de nodos conectados. Se pueden organizar, nombrar, etiquetar, activar/desactivar, importar/exportar y versionar.
@@ -52,7 +52,7 @@ export const searchIndex: SearchResult[] = [
   {
     path: '/nodes',
     title: 'Tipos de Nodos en n8n',
-    category: 'Nodes',
+    category: 'Nodos',
     content: `
       Los nodos son los componentes para construir workflows.
       Nodos Trigger (Disparadores): Inician un workflow. Ejemplos: Manual, App Event, Schedule, Webhook, Call Workflow, Form Trigger.
@@ -81,7 +81,7 @@ export const searchIndex: SearchResult[] = [
   {
     path: '/advanced',
     title: 'Conceptos Avanzados: Seguridad, APIs y Autenticación',
-    category: 'Advanced',
+    category: 'Avanzado',
     content: `
       APIs en n8n: El Corazón de la Conectividad. El nodo HTTP Request es clave. Soporta métodos HTTP (GET, POST, PATCH, DELETE), configuración de URL, headers, body y autenticación. Puede importar cURL.
       Autenticación en n8n: Gestión Centralizada de Credenciales (API Key, OAuth2, Bearer Token). Seguridad de Webhooks (URLs de Prueba vs. Producción, Autenticación Básica, Header, JWT).

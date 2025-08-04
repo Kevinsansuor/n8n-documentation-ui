@@ -33,10 +33,10 @@ export const SearchCommand = ({ open, onOpenChange }: SearchCommandProps) => {
 
   return (
     <CommandDialog open={open} onOpenChange={onOpenChange}>
-      <CommandInput placeholder="Search documentation..." />
+      <CommandInput placeholder="Buscar en la documentación..." />
       <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading="Articles">
+        <CommandEmpty>No se encontraron resultados.</CommandEmpty>
+        <CommandGroup heading="Artículos">
           {searchIndex.map((item: SearchResult) => (
             <CommandItem
               key={item.path}

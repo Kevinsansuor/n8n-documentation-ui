@@ -4,7 +4,7 @@ import React from 'react';
 
 const allCategories = [
   {
-    title: 'Getting Started',
+    title: 'Primeros Pasos',
     items: [
       {
         icon: <FileText className="w-6 h-6" />,
@@ -14,8 +14,8 @@ const allCategories = [
       },
       {
         icon: <ListTree className="w-6 h-6" />,
-        title: 'Core Concepts',
-        description: 'Understand the fundamental principles of n8n',
+        title: 'Conceptos Clave',
+        description: 'Comprende los principios fundamentales de n8n.',
         link: '/core-concepts',
       },
       {
@@ -27,35 +27,35 @@ const allCategories = [
     ],
   },
   {
-    title: 'Core Concepts',
+    title: 'Conceptos Clave',
     items: [
-        { icon: <Puzzle className="w-6 h-6" />, title: 'Nodes', description: 'Explore the building blocks of n8n', link: '/nodes' },
-        { icon: <Workflow className="w-6 h-6" />, title: 'Workflows', description: 'Create and manage automated processes', link: '/workflows' },
-        { icon: <Settings className="w-6 h-6" />, title: 'Settings', description: 'Configure n8n to suit your needs', link: '/article' },
+        { icon: <Puzzle className="w-6 h-6" />, title: 'Nodos', description: 'Explora los bloques de construcción de n8n.', link: '/nodes' },
+        { icon: <Workflow className="w-6 h-6" />, title: 'Workflows', description: 'Crea y gestiona procesos automatizados.', link: '/workflows' },
+        { icon: <Settings className="w-6 h-6" />, title: 'Configuración', description: 'Configura n8n para que se adapte a tus necesidades.', link: '/article' },
     ],
   },
   {
-    title: 'Nodes',
+    title: 'Nodos',
     items: [
-        { icon: <Database className="w-6 h-6" />, title: 'Database Nodes', description: 'Connect to various databases', link: '/nodes' },
-        { icon: <Cloud className="w-6 h-6" />, title: 'Cloud Service Nodes', description: 'Integrate with cloud platforms', link: '/nodes' },
-        { icon: <Mail className="w-6 h-6" />, title: 'Communication Nodes', description: 'Send emails and messages', link: '/nodes' },
+        { icon: <Database className="w-6 h-6" />, title: 'Nodos de Base de Datos', description: 'Conéctate a varias bases de datos.', link: '/nodes' },
+        { icon: <Cloud className="w-6 h-6" />, title: 'Nodos de Servicios en la Nube', description: 'Intégrate con plataformas en la nube.', link: '/nodes' },
+        { icon: <Mail className="w-6 h-6" />, title: 'Nodos de Comunicación', description: 'Envía correos electrónicos y mensajes.', link: '/nodes' },
     ],
   },
   {
     title: 'Workflows',
     items: [
-        { icon: <Clock className="w-6 h-6" />, title: 'Triggers', description: 'Automate workflows based on events', link: '/workflows' },
-        { icon: <Table className="w-6 h-6" />, title: 'Data Manipulation', description: 'Transform and process data', link: '/workflows' },
-        { icon: <Code className="w-6 h-6" />, title: 'Custom Functions', description: 'Extend n8n with custom code', link: '/workflows' },
+        { icon: <Clock className="w-6 h-6" />, title: 'Disparadores', description: 'Automatiza flujos de trabajo basados en eventos.', link: '/workflows' },
+        { icon: <Table className="w-6 h-6" />, title: 'Manipulación de Datos', description: 'Transforma y procesa datos.', link: '/workflows' },
+        { icon: <Code className="w-6 h-6" />, title: 'Funciones Personalizadas', description: 'Extiende n8n con código personalizado.', link: '/workflows' },
     ],
   },
   {
-    title: 'Advanced',
+    title: 'Avanzado',
     items: [
-        { icon: <Shield className="w-6 h-6" />, title: 'Security', description: 'Ensure the security of your n8n instance', link: '/advanced' },
-        { icon: <KeyRound className="w-6 h-6" />, title: 'Authentication', description: 'Manage user access and permissions', link: '/advanced' },
-        { icon: <BookKey className="w-6 h-6" />, title: 'API', description: 'Interact with n8n programmatically', link: '/advanced' },
+        { icon: <Shield className="w-6 h-6" />, title: 'Seguridad', description: 'Asegura la seguridad de tu instancia de n8n.', link: '/advanced' },
+        { icon: <KeyRound className="w-6 h-6" />, title: 'Autenticación', description: 'Gestiona el acceso y los permisos de los usuarios.', link: '/advanced' },
+        { icon: <BookKey className="w-6 h-6" />, title: 'API', description: 'Interactúa con n8n programáticamente.', link: '/advanced' },
     ],
   },
 ];
@@ -65,9 +65,9 @@ export const IndexPageContent = () => {
   return (
     <div className="container mx-auto px-4 py-12 md:py-20">
       <div className="text-center max-w-2xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to n8n Docs</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">Bienvenido a la Documentación de n8n</h1>
         <p className="text-lg text-muted-foreground mt-4">
-          Find the guides, tutorials, and references you need. Use the search bar in the header to get started.
+          Encuentra las guías, tutoriales y referencias que necesitas. Usa la barra de búsqueda en la cabecera para empezar.
         </p>
       </div>
 
