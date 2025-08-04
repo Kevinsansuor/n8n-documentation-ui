@@ -35,7 +35,7 @@ export const DocsHeader = ({ onSearchClick }: DocsHeaderProps) => {
               className="h-9 w-full flex items-center justify-between rounded-[0.5rem] bg-background text-sm font-normal text-muted-foreground shadow-none sm:w-64 px-3"
               onClick={onSearchClick}
             >
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 min-w-0">
                 <Search className="h-4 w-4" />
                 <span className="truncate">Buscar en la documentación...</span>
               </div>
