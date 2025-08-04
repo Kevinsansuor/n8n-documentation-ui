@@ -1,6 +1,7 @@
 import { DocsLayout } from '@/components/DocsLayout';
 import { OnThisPageSidebar } from '@/components/OnThisPageSidebar';
 import { useRef } from 'react';
+import { CodeBlock } from '@/components/CodeBlock';
 
 const ArticlePage = () => {
   const contentRef = useRef<HTMLElement>(null);
@@ -9,7 +10,7 @@ const ArticlePage = () => {
     <DocsLayout>
       <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="flex flex-col lg:flex-row gap-12 xl:gap-16">
-          <article ref={contentRef} className="prose dark:prose-invert prose-lg max-w-none lg:w-3/4 prose-headings:font-semibold prose-h1:text-blue-500 prose-h2:border-b prose-h2:pb-2 prose-a:text-blue-500 hover:prose-a:text-blue-600 prose-strong:text-foreground prose-code:bg-muted prose-code:p-1 prose-code:rounded-md prose-pre:bg-muted prose-pre:border">
+          <article ref={contentRef} className="prose dark:prose-invert prose-lg max-w-none lg:w-3/4 prose-headings:font-semibold prose-h1:text-blue-500 prose-h2:border-b prose-h2:pb-2 prose-a:text-blue-500 hover:prose-a:text-blue-600 prose-strong:text-foreground prose-code:bg-muted prose-code:p-1 prose-code:rounded-md">
             <h1>Introduction</h1>
             <p>
               Welcome to the n8n documentation. n8n is a free and open-source workflow automation tool. It enables you to connect different applications and services to automate your tasks. This guide will walk you through the basics of n8n, from installation to creating your first workflow.
@@ -38,11 +39,11 @@ const ArticlePage = () => {
             <p>
               You can run n8n in several ways. The most common methods are using Docker or npm. For detailed instructions, please refer to the official installation guide.
             </p>
-            <pre>
+            <CodeBlock>
               <code>
 npx n8n
               </code>
-            </pre>
+            </CodeBlock>
             <p>
               This command will download and start n8n. You can then access it at <code>http://localhost:5678</code>.
             </p>
