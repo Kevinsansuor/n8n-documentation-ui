@@ -22,7 +22,7 @@ export const DocsHeader = ({ onSearchClick }: DocsHeaderProps) => {
           </a>
           <nav className="hidden md:flex items-center space-x-6 text-muted-foreground">
             <a href="/" className="hover:text-foreground transition-colors">Documentación</a>
-            <a href="https://n8n.io/faq/api-usage/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">API</a>
+            <a href="https://docs.n8n.io/api/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">API</a>
             <a href="https://community.n8n.io/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Comunidad</a>
             <a href="https://n8n.io/blog/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Blog</a>
           </nav>
@@ -60,7 +60,7 @@ export const DocsHeader = ({ onSearchClick }: DocsHeaderProps) => {
               <SheetContent>
                 <nav className="flex flex-col space-y-4 text-lg mt-8">
                   <Link to="/" onClick={() => setIsSheetOpen(false)} className="text-muted-foreground hover:text-foreground">Documentación</Link>
-                  <a href="https://n8n.io/faq/api-usage/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">API</a>
+                  <a href="https://docs.n8n.io/api/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">API</a>
                   <a href="https://community.n8n.io/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">Comunidad</a>
                   <a href="https://n8n.io/blog/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">Blog</a>
                 </nav>
