@@ -67,3 +67,4 @@ export const DocsHeader = ({ onSearchClick }: DocsHeaderProps) => {
       </div>
     </header>
   );
+};
