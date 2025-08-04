@@ -30,7 +30,7 @@ const allCategories = [
   {
     title: 'Core Concepts',
     items: [
-        { icon: <Puzzle className="w-6 h-6" />, title: 'Nodes', description: 'Explore the building blocks of n8n', link: '/core-concepts' },
+        { icon: <Puzzle className="w-6 h-6" />, title: 'Nodes', description: 'Explore the building blocks of n8n', link: '/nodes' },
         { icon: <Workflow className="w-6 h-6" />, title: 'Workflows', description: 'Create and manage automated processes', link: '/core-concepts' },
         { icon: <Settings className="w-6 h-6" />, title: 'Settings', description: 'Configure n8n to suit your needs', link: '/article' },
     ],
@@ -38,9 +38,9 @@ const allCategories = [
   {
     title: 'Nodes',
     items: [
-        { icon: <Database className="w-6 h-6" />, title: 'Database Nodes', description: 'Connect to various databases', link: '/core-concepts' },
-        { icon: <Cloud className="w-6 h-6" />, title: 'Cloud Service Nodes', description: 'Integrate with cloud platforms', link: '/core-concepts' },
-        { icon: <Mail className="w-6 h-6" />, title: 'Communication Nodes', description: 'Send emails and messages', link: '/core-concepts' },
+        { icon: <Database className="w-6 h-6" />, title: 'Database Nodes', description: 'Connect to various databases', link: '/nodes' },
+        { icon: <Cloud className="w-6 h-6" />, title: 'Cloud Service Nodes', description: 'Integrate with cloud platforms', link: '/nodes' },
+        { icon: <Mail className="w-6 h-6" />, title: 'Communication Nodes', description: 'Send emails and messages', link: '/nodes' },
     ],
   },
   {
