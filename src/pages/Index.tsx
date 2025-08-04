@@ -1,8 +1,8 @@
 import { DocsLayout } from '@/components/DocsLayout';
 import { CategoryCard } from '@/components/CategoryCard';
-import { Input } from '@/components/ui/input';
-import { Search, FileText, ListTree, Terminal, Puzzle, Workflow, Settings, Database, Cloud, Mail, Clock, Table, Code, Shield, KeyRound, BookKey } from 'lucide-react';
+import { FileText, ListTree, Terminal, Puzzle, Workflow, Settings, Database, Cloud, Mail, Clock, Table, Code, Shield, KeyRound, BookKey } from 'lucide-react';
 import React from 'react';
+import { useSearch } from '@/context/SearchContext';
 
 const allCategories = [
   {
@@ -61,11 +61,7 @@ const allCategories = [
 
 
 const Index = () => {
-  const [searchTerm, setSearchTerm] = React.useState('');
-
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value);
-  };
+  const { searchTerm } = useSearch();
 
   const filteredCategories = allCategories.map(category => ({
     ...category,
@@ -80,16 +76,9 @@ const Index = () => {
       <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="text-center max-w-2xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to n8n Docs</h1>
-          <div className="relative mt-6">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
-            <Input
-              type="search"
-              placeholder="Search docs"
-              className="bg-card border-border h-14 pl-12 text-lg w-full rounded-lg focus:ring-blue-500 focus:border-blue-500"
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
-          </div>
+          <p className="text-lg text-muted-foreground mt-4">
+            Find the guides, tutorials, and references you need. Use the search bar in the header to get started.
+          </p>
         </div>
 
         <div className="mt-16 space-y-12">
