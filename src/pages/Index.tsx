@@ -1,4 +1,4 @@
-import { DocsHeader } from '@/components/DocsHeader';
+import { DocsLayout } from '@/components/DocsLayout';
 import { CategoryCard } from '@/components/CategoryCard';
 import { Input } from '@/components/ui/input';
 import { Search, FileText, ListTree, Terminal, Puzzle, Workflow, Settings, Database, Cloud, Mail, Clock, Table, Code, Shield, KeyRound, BookKey } from 'lucide-react';
@@ -48,9 +48,8 @@ const advanced = [
 
 const Index = () => {
   return (
-    <div className="bg-[#0c1017] min-h-screen text-white">
-      <DocsHeader />
-      <main className="container mx-auto px-4 py-12 md:py-20">
+    <DocsLayout>
+      <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="text-center max-w-2xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to n8n Docs</h1>
           <div className="relative mt-6">
@@ -99,8 +98,8 @@ const Index = () => {
             </div>
           </section>
         </div>
-      </main>
-    </div>
+      </div>
+    </DocsLayout>
   );
 };
 
