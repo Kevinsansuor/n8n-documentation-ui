@@ -37,9 +37,6 @@ export const DocsHeader = () => {
             />
           </div>
           <ThemeToggle />
-          <Button variant="outline">
-            Sign In
-          </Button>
         </div>
 
         <div className="md:hidden">
@@ -67,11 +64,8 @@ export const DocsHeader = () => {
                 <Link to="#" className="text-muted-foreground hover:text-foreground">Community</Link>
                 <Link to="#" className="text-muted-foreground hover:text-foreground">Blog</Link>
               </nav>
-              <div className="mt-8 flex items-center justify-between">
+              <div className="mt-8 flex items-center justify-start">
                 <ThemeToggle />
-                <Button variant="outline">
-                  Sign In
-                </Button>
               </div>
             </SheetContent>
           </Sheet>
