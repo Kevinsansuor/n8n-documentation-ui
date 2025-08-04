@@ -45,7 +45,7 @@ const WorkflowsPage = () => {
             <h2 id="funcionalidades-avanzadas">Funcionalidades y Conceptos Avanzados</h2>
             <ul>
               <li><strong>Gestión de Credenciales:</strong> Centraliza API keys para reutilizarlas de forma segura.</li>
-              <li><strong>Expresiones:</strong> Usa JavaScript (entre `{{...}}`) para establecer parámetros dinámicamente.</li>
+              <li><strong>Expresiones:</strong> Usa JavaScript (entre <code>{`{{...}}`}</code>) para establecer parámetros dinámicamente.</li>
               <li><strong>Prueba de Paso (Test Step):</strong> Ejecuta un solo nodo para facilitar la depuración.</li>
               <li><strong>Activación del Workflow:</strong> Un workflow debe estar "activo" para ejecutarse automáticamente en producción.</li>
               <li><strong>Manejo de Errores:</strong> Configura acciones alternativas, reintentos y notificaciones para fallos.</li>
