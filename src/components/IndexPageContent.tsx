@@ -17,7 +17,7 @@ const allCategories = [
         icon: <ListTree className="w-6 h-6" />,
         title: 'Core Concepts',
         description: 'Understand the fundamental principles of n8n',
-        link: '/article',
+        link: '/core-concepts',
       },
       {
         icon: <Terminal className="w-6 h-6" />,
@@ -30,25 +30,25 @@ const allCategories = [
   {
     title: 'Core Concepts',
     items: [
-        { icon: <Puzzle className="w-6 h-6" />, title: 'Nodes', description: 'Explore the building blocks of n8n', link: '/article' },
-        { icon: <Workflow className="w-6 h-6" />, title: 'Workflows', description: 'Create and manage automated processes', link: '/article' },
+        { icon: <Puzzle className="w-6 h-6" />, title: 'Nodes', description: 'Explore the building blocks of n8n', link: '/core-concepts' },
+        { icon: <Workflow className="w-6 h-6" />, title: 'Workflows', description: 'Create and manage automated processes', link: '/core-concepts' },
         { icon: <Settings className="w-6 h-6" />, title: 'Settings', description: 'Configure n8n to suit your needs', link: '/article' },
     ],
   },
   {
     title: 'Nodes',
     items: [
-        { icon: <Database className="w-6 h-6" />, title: 'Database Nodes', description: 'Connect to various databases', link: '/article' },
-        { icon: <Cloud className="w-6 h-6" />, title: 'Cloud Service Nodes', description: 'Integrate with cloud platforms', link: '/article' },
-        { icon: <Mail className="w-6 h-6" />, title: 'Communication Nodes', description: 'Send emails and messages', link: '/article' },
+        { icon: <Database className="w-6 h-6" />, title: 'Database Nodes', description: 'Connect to various databases', link: '/core-concepts' },
+        { icon: <Cloud className="w-6 h-6" />, title: 'Cloud Service Nodes', description: 'Integrate with cloud platforms', link: '/core-concepts' },
+        { icon: <Mail className="w-6 h-6" />, title: 'Communication Nodes', description: 'Send emails and messages', link: '/core-concepts' },
     ],
   },
   {
     title: 'Workflows',
     items: [
-        { icon: <Clock className="w-6 h-6" />, title: 'Triggers', description: 'Automate workflows based on events', link: '/article' },
-        { icon: <Table className="w-6 h-6" />, title: 'Data Manipulation', description: 'Transform and process data', link: '/article' },
-        { icon: <Code className="w-6 h-6" />, title: 'Custom Functions', description: 'Extend n8n with custom code', link: '/article' },
+        { icon: <Clock className="w-6 h-6" />, title: 'Triggers', description: 'Automate workflows based on events', link: '/core-concepts' },
+        { icon: <Table className="w-6 h-6" />, title: 'Data Manipulation', description: 'Transform and process data', link: '/core-concepts' },
+        { icon: <Code className="w-6 h-6" />, title: 'Custom Functions', description: 'Extend n8n with custom code', link: '/core-concepts' },
     ],
   },
   {

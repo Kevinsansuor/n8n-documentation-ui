@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import ArticlePage from "./pages/ArticlePage";
 import HostingOptionsPage from "./pages/HostingOptionsPage";
+import CoreConceptsPage from "./pages/CoreConceptsPage";
 import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "./components/ThemeProvider";
 
@@ -22,6 +23,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/article" element={<ArticlePage />} />
             <Route path="/hosting-options" element={<HostingOptionsPage />} />
+            <Route path="/core-concepts" element={<CoreConceptsPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
