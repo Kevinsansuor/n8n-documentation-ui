@@ -1,9 +1,11 @@
 import { cn } from '@/lib/utils';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Bot } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface Message {
-  id: number;
+  id: number | string;
   text: string;
   sender: 'user' | 'bot';
 }
@@ -37,7 +39,23 @@ export const ChatMessage = ({ message }: ChatMessageProps) => {
             : 'bg-primary text-primary-foreground'
         )}
       >
-        {message.text}
+        {isBot ? (
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            className="prose prose-sm dark:prose-invert max-w-none"
+            components={{
+              p: ({ node, ...props }) => <p className="mb-2 last:mb-0" {...props} />,
+              a: ({ node, ...props }) => <a className="text-primary underline" target="_blank" rel="noopener noreferrer" {...props} />,
+              ul: ({ node, ...props }) => <ul className="list-disc pl-4 mb-2" {...props} />,
+              ol: ({ node, ...props }) => <ol className="list-decimal pl-4 mb-2" {...props} />,
+              li: ({ node, ...props }) => <li className="mb-1" {...props} />,
+            }}
+          >
+            {message.text}
+          </ReactMarkdown>
+        ) : (
+          message.text
+        )}
       </div>
     </div>
   );
