@@ -16,13 +16,37 @@ interface ChatbotProps {
   onClose: () => void;
 }
 
+const CHAT_STORAGE_KEY = 'chatbot-messages';
+const MAX_MESSAGES_TO_STORE = 50;
+
 export const Chatbot = ({ onClose }: ChatbotProps) => {
-  const [messages, setMessages] = useState<Message[]>([
-    { id: 1, text: "¡Hola! Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?", sender: 'bot' },
-  ]);
+  const [messages, setMessages] = useState<Message[]>(() => {
+    try {
+      const savedMessages = localStorage.getItem(CHAT_STORAGE_KEY);
+      if (savedMessages) {
+        const parsedMessages = JSON.parse(savedMessages);
+        if (Array.isArray(parsedMessages) && parsedMessages.length > 0) {
+          return parsedMessages;
+        }
+      }
+    } catch (error) {
+      console.error("Error al cargar los mensajes desde localStorage:", error);
+    }
+    return [{ id: 1, text: "¡Hola! Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?", sender: 'bot' }];
+  });
+
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    try {
+      const recentMessages = messages.slice(-MAX_MESSAGES_TO_STORE);
+      localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(recentMessages));
+    } catch (error) {
+      console.error("Error al guardar los mensajes en localStorage:", error);
+    }
+  }, [messages]);
 
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
