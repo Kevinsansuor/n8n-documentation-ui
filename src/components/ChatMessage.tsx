@@ -16,7 +16,6 @@ interface ChatMessageProps {
 
 export const ChatMessage = ({ message }: ChatMessageProps) => {
   const isBot = message.sender === 'bot';
-  const isTypingIndicator = message.id === 'typing-indicator';
 
   return (
     <div
@@ -40,11 +39,7 @@ export const ChatMessage = ({ message }: ChatMessageProps) => {
             : 'bg-primary text-primary-foreground'
         )}
       >
-        {isTypingIndicator ? (
-          <div className="relative overflow-hidden bg-muted-foreground/20 h-5 w-20 rounded-full">
-            <div className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-background/50 to-transparent"></div>
-          </div>
-        ) : isBot ? (
+        {isBot ? (
           <div className="prose prose-sm dark:prose-invert max-w-none">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
