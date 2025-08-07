@@ -37,7 +37,7 @@ export const Chatbot = ({ onClose }: ChatbotProps) => {
 
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     try {
@@ -113,10 +113,10 @@ export const Chatbot = ({ onClose }: ChatbotProps) => {
   };
 
   useEffect(() => {
-    if (scrollAreaRef.current) {
-      const viewport = scrollAreaRef.current.querySelector('div[data-radix-scroll-area-viewport]');
-      if (viewport) {
-        viewport.scrollTop = viewport.scrollHeight;
+    if (messagesContainerRef.current) {
+      const lastMessageElement = messagesContainerRef.current.lastElementChild;
+      if (lastMessageElement) {
+        lastMessageElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
   }, [messages, isLoading]);
@@ -134,8 +134,8 @@ export const Chatbot = ({ onClose }: ChatbotProps) => {
         </Button>
       </CardHeader>
       <CardContent className="flex-1 p-4 min-h-0">
-        <ScrollArea className="h-full" ref={scrollAreaRef}>
-          <div className="space-y-4 pr-4">
+        <ScrollArea className="h-full">
+          <div className="space-y-4 pr-4" ref={messagesContainerRef}>
             {messages.map((msg) => (
               <ChatMessage key={msg.id} message={msg} />
             ))}
