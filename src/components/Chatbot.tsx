@@ -140,7 +140,7 @@ export const Chatbot = ({ onClose }: ChatbotProps) => {
               <ChatMessage key={msg.id} message={msg} />
             ))}
             {isLoading && (
-              <ChatMessage message={{ id: 'typing-indicator', text: 'Escribiendo...', sender: 'bot' }} />
+              <ChatMessage message={{ id: 'typing-indicator', text: '', sender: 'bot' }} />
             )}
           </div>
         </ScrollArea>

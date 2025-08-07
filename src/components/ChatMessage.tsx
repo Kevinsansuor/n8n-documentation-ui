@@ -17,6 +17,25 @@ interface ChatMessageProps {
 export const ChatMessage = ({ message }: ChatMessageProps) => {
   const isBot = message.sender === 'bot';
 
+  if (message.id === 'typing-indicator') {
+    return (
+      <div className="flex items-start gap-3 animate-fade-in-down">
+        <Avatar className="h-8 w-8">
+          <AvatarFallback>
+            <Bot className="h-5 w-5" />
+          </AvatarFallback>
+        </Avatar>
+        <div className="rounded-lg px-3 py-2 max-w-xs text-sm bg-muted text-muted-foreground flex items-center">
+          <div className="flex items-center space-x-1 p-1">
+            <span className="h-2 w-2 bg-current rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+            <span className="h-2 w-2 bg-current rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+            <span className="h-2 w-2 bg-current rounded-full animate-bounce"></span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       className={cn(
