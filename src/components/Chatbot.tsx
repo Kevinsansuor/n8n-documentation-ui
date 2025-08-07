@@ -104,7 +104,7 @@ export const Chatbot = ({ onClose }: ChatbotProps) => {
           <span className="sr-only">Minimizar chat</span>
         </Button>
       </CardHeader>
-      <CardContent className="flex-1 p-4">
+      <CardContent className="flex-1 p-4 min-h-0">
         <ScrollArea className="h-full" ref={scrollAreaRef}>
           <div className="space-y-4">
             {messages.map((msg) => (
