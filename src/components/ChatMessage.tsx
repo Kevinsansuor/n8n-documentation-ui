@@ -40,19 +40,20 @@ export const ChatMessage = ({ message }: ChatMessageProps) => {
         )}
       >
         {isBot ? (
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            className="prose prose-sm dark:prose-invert max-w-none"
-            components={{
-              p: ({ node, ...props }) => <p className="mb-2 last:mb-0" {...props} />,
-              a: ({ node, ...props }) => <a className="text-primary underline" target="_blank" rel="noopener noreferrer" {...props} />,
-              ul: ({ node, ...props }) => <ul className="list-disc pl-4 mb-2" {...props} />,
-              ol: ({ node, ...props }) => <ol className="list-decimal pl-4 mb-2" {...props} />,
-              li: ({ node, ...props }) => <li className="mb-1" {...props} />,
-            }}
-          >
-            {message.text}
-          </ReactMarkdown>
+          <div className="prose prose-sm dark:prose-invert max-w-none">
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                p: ({ node, ...props }) => <p className="mb-2 last:mb-0" {...props} />,
+                a: ({ node, ...props }) => <a className="text-primary underline" target="_blank" rel="noopener noreferrer" {...props} />,
+                ul: ({ node, ...props }) => <ul className="list-disc pl-4 mb-2" {...props} />,
+                ol: ({ node, ...props }) => <ol className="list-decimal pl-4 mb-2" {...props} />,
+                li: ({ node, ...props }) => <li className="mb-1" {...props} />,
+              }}
+            >
+              {message.text}
+            </ReactMarkdown>
+          </div>
         ) : (
           message.text
         )}
