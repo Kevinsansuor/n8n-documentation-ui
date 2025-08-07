@@ -7,7 +7,7 @@ import { ChatMessage } from './ChatMessage';
 import { ScrollArea } from './ui/scroll-area';
 
 interface Message {
-  id: number;
+  id: number | string;
   text: string;
   sender: 'user' | 'bot';
 }
@@ -21,11 +21,12 @@ export const Chatbot = ({ onClose }: ChatbotProps) => {
     { id: 1, text: "¡Hola! Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?", sender: 'bot' },
   ]);
   const [inputValue, setInputValue] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
-  const handleSendMessage = (e: React.FormEvent) => {
+  const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!inputValue.trim()) return;
+    if (!inputValue.trim() || isLoading) return;
 
     const userMessage: Message = {
       id: Date.now(),
@@ -35,28 +36,61 @@ export const Chatbot = ({ onClose }: ChatbotProps) => {
 
     setMessages((prev) => [...prev, userMessage]);
     setInputValue('');
+    setIsLoading(true);
 
-    // TODO: Aquí se implementará la lógica de la petición HTTP.
-    // Por ahora, simulamos una respuesta del bot.
-    setTimeout(() => {
+    try {
+      const response = await fetch('http://localhost:5678/webhook-test/TEST-MANUAL', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: userMessage.text }),
+      });
+
+      if (!response.ok) {
+        throw new Error('La respuesta de la red no fue correcta');
+      }
+
+      const responseData = await response.json();
+      let botText = "No he podido procesar tu respuesta.";
+
+      if (responseData && typeof responseData === 'object') {
+        if (responseData.reply) botText = responseData.reply;
+        else if (responseData.message) botText = responseData.message;
+        else if (responseData.text) botText = responseData.text;
+        else botText = `Respuesta recibida: ${JSON.stringify(responseData)}`;
+      } else if (typeof responseData === 'string') {
+        botText = responseData;
+      }
+
       const botResponse: Message = {
         id: Date.now() + 1,
-        text: "Gracias por tu mensaje. Estoy procesando tu solicitud.",
+        text: botText,
         sender: 'bot',
       };
       setMessages((prev) => [...prev, botResponse]);
-    }, 1000);
+
+    } catch (error) {
+      console.error('Error al contactar al chatbot:', error);
+      const errorResponse: Message = {
+        id: Date.now() + 1,
+        text: "Lo siento, ha ocurrido un error al conectar con el servidor. Por favor, inténtalo de nuevo más tarde.",
+        sender: 'bot',
+      };
+      setMessages((prev) => [...prev, errorResponse]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
-    // Auto-scroll to the bottom when new messages are added
     if (scrollAreaRef.current) {
       const viewport = scrollAreaRef.current.querySelector('div[data-radix-scroll-area-viewport]');
       if (viewport) {
         viewport.scrollTop = viewport.scrollHeight;
       }
     }
-  }, [messages]);
+  }, [messages, isLoading]);
 
   return (
     <Card className="fixed bottom-4 right-4 w-full max-w-sm h-[600px] flex flex-col shadow-lg z-50">
@@ -76,6 +110,9 @@ export const Chatbot = ({ onClose }: ChatbotProps) => {
             {messages.map((msg) => (
               <ChatMessage key={msg.id} message={msg} />
             ))}
+            {isLoading && (
+              <ChatMessage message={{ id: 'typing-indicator', text: 'Escribiendo...', sender: 'bot' }} />
+            )}
           </div>
         </ScrollArea>
       </CardContent>
@@ -86,8 +123,9 @@ export const Chatbot = ({ onClose }: ChatbotProps) => {
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="Escribe un mensaje..."
             autoComplete="off"
+            disabled={isLoading}
           />
-          <Button type="submit" size="icon">
+          <Button type="submit" size="icon" disabled={isLoading}>
             <Send className="h-4 w-4" />
             <span className="sr-only">Enviar</span>
           </Button>
