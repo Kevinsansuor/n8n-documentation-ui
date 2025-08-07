@@ -55,10 +55,15 @@ export const Chatbot = ({ onClose }: ChatbotProps) => {
       let botText = "No he podido procesar tu respuesta.";
 
       if (responseData && typeof responseData === 'object') {
-        if (responseData.reply) botText = responseData.reply;
-        else if (responseData.message) botText = responseData.message;
-        else if (responseData.text) botText = responseData.text;
-        else botText = `Respuesta recibida: ${JSON.stringify(responseData)}`;
+        if (responseData.output) {
+          botText = responseData.output;
+        } else if (responseData.reply) {
+          botText = responseData.reply;
+        } else if (responseData.message) {
+          botText = responseData.message;
+        } else if (responseData.text) {
+          botText = responseData.text;
+        }
       } else if (typeof responseData === 'string') {
         botText = responseData;
       }
